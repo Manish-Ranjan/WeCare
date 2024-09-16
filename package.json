@@ -1,5 +1,5 @@
 {
-  "name": "astro-dev",
+  "name": "WeCare",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -7,11 +7,26 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "npm run check:astro && npm run check:eslint && npm run check:prettier",
+    "check:astro": "astro check",
+    "check:eslint": "eslint .",
+    "check:prettier": "prettier --check .",
+    "fix": "npm run fix:eslint && npm run fix:prettier",
+    "fix:eslint": "eslint --fix .",
+    "fix:prettier": "prettier -w ."
   },
   "dependencies": {
-    "astro": "^4.15.4",
     "@astrojs/check": "^0.9.3",
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^4.15.4",
+    "tailwindcss": "^3.4.10",
     "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "eslint": "^9.10.0",
+    "eslint-plugin-astro": "^1.2.3",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }
