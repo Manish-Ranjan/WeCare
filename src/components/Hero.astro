@@ -3,11 +3,17 @@ import { Image } from 'astro:assets';
 ---
 
 <section class="user-cloud relative h-screen w-full">
-  <div class="brands-carousel relative pl-0 h-screen overflow-hidden">
+  <div class="brands-carousel relative pl-0 h-full overflow-hidden">
     {
       ['Hero-1.webp', 'Hero-2.webp', 'Hero-3.webp', 'Hero-1.webp'].map((heroImg) => (
-        <picture class="h-screen w-full absolute top-0 flex justify-center">
-          <Image class="h-fit w-fit" src={`/images/${heroImg}`} alt="A bird." width="1200" height="1200" />
+        <picture class="h-screen object-cover w-full absolute top-0 flex justify-center">
+          <Image
+            class="h-fit w-fit lg:h-full lg:w-full "
+            src={`/images/${heroImg}`}
+            alt="A bird."
+            width="1200"
+            height="1200"
+          />
         </picture>
       ))
     }
