@@ -1,0 +1,59 @@
+---
+import { Image } from 'astro:assets';
+
+const PROJECTS = [
+  {
+    img: '/images/BloodDonation.webp',
+    href: '#',
+    title: 'Blood Donation',
+    description:
+      'In the bustling streets of Bhagalpur, amidst the daily hustle and bustle, a beacon of compassion emerged in the form of We Care NGO. Founded in June 2018, our journey began with a simple yet profound mission: to address the pressing need for blood donations in our community.',
+  },
+  {
+    img: '/images/Paathshala.webp',
+    href: '#',
+    title: 'Paathshala',
+    description:
+      'In July 2022, \'We Care\' launched Paathshala "Udaan Hausloon Ki" in the Refugee Colony, sparking a transformative journey for slum children. This initiative was more than just a classroom; it became a beacon of hope, offering not only education but also a path to a better life.',
+  },
+  {
+    img: '/images/ProjectPrakriti.webp',
+    href: '#',
+    title: 'Project Prakriti',
+    description:
+      'Project Prakriti, initiated by We Care in 2021, is a heartfelt effort to protect the environment by blending tree preservation with community-driven planting activities. This three-month project focused on sustainable forestry and meaningful community involvement.',
+  },
+  {
+    img: '/images/Cleanliness.webp',
+    href: '#',
+    title: 'Cleanliness',
+    description:
+      "In 2020, We Care, an NGO dedicated to environmental stewardship, launched weekly cleanliness campaigns in Bhagalpur. Over two years, they improved the city's sanitation and preserved its cultural heritage by focusing on landmarks like statues, Ganga ghats, and Sandis Compound.",
+  },
+];
+---
+
+<section id="projects" class="py-10 bg-[#fdf4f4] flex justify-center items-start sm:py-16">
+  <div class="px-4 relative overflow-hidden bg-white w-[90%] sm:px-6 lg:px-8 rounded-xl">
+    <div class="max-w-2xl mx-auto text-center pt-2">
+      <h2 class="text-3xl font-bold leading-tight text-primary sm:text-4xl lg:text-5xl">On Going Projects</h2>
+    </div>
+
+    <ul
+      class="grid grid-cols-1 gap-6 mx-auto mt-2 text-center md:max-w-8xl sm:grid-cols-2 md:grid-cols-4 md:gap-8 sm:mt-16"
+    >
+      {
+        PROJECTS.map((project) => (
+          <li class="">
+            <Image class="h-fit w-fit " src={project.img} alt={project.title} width="20" height="20" />
+
+            <div class="px-4 py-5 lg:p-8">
+              <p class="text-2xl font-bold text-text">{project.title}</p>
+              <p class="mt-4 text-base font-medium text-black lg:text-xl">{project.description}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

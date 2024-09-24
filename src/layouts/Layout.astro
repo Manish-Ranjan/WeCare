@@ -21,9 +21,6 @@ interface Props {
     <title>{SITE.title}{title.length ? `| ${title}` : ''}</title>
   </head>
   <body class="antialiased bg-primary text-default tracking-tight">
-    <slot name="announcement">
-      <Announcement />
-    </slot>
     <Header />
     <main id="main-content">
       <slot />

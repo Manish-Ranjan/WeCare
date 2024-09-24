@@ -5,12 +5,12 @@ import { HEADER_NAV_ITEMS, SITE } from '@/constants';
 import NavLink from './NavLink.astro';
 ---
 
-<header class="z-40 sticky top-0 dark:bg-black">
+<header class="dark:bg-black py-2">
   <nav class="container flex items-center justify-between py-2" aria-label="Global">
     <div class="flex justify-between">
       <a href="/" class="-m-1.5 p-1.5">
         <span class="sr-only">{SITE.title}</span>
-        <Image class="h-16 w-auto" src={config.site.logo} alt="We Care Logo" height={16} width={16} />
+        <Image class="h-16 w-auto" src={config.site.logo} alt="We Care Logo" height={18} width={18} />
       </a>
     </div>
     <div class="flex lg:hidden gap-4">
@@ -32,7 +32,7 @@ import NavLink from './NavLink.astro';
         </svg>
       </button>
     </div>
-    <ul class="hidden lg:flex lg:gap-x-12">
+    <ul class="hidden lg:flex lg:flex-1 justify-center items-center lg:gap-x-20">
       {
         HEADER_NAV_ITEMS.map((link) => (
           <li>
@@ -43,7 +43,7 @@ import NavLink from './NavLink.astro';
     </ul>
   </nav>
   <div id="navbar" class="hidden lg:hidden" role="dialog" aria-modal="true">
-    <div class="fixed inset-0 z-10"></div>
+    <div id="navbar-shadow" class="fixed inset-0 z-10 bg-black opacity-70"></div>
     <div
       class="fixed sm:shadow-xl ring-2 ring-text rounded-t-lg sm:rounded-none bottom-0 sm:inset-y-0 sm:right-0 z-10 w-full overflow-y-auto bg-primary dark:bg-primary dark:bg-opacity-6 px-6 py-6 sm:max-w-xs sm:ring-1 sm:ring-gray-900/10"
     >
@@ -85,11 +85,16 @@ import NavLink from './NavLink.astro';
 
 <script>
   let menuBtns = document.querySelectorAll('#menu-btn');
+  let navBarShadow = document.querySelector('#navbar-shadow');
   const navbar = document.querySelector('#navbar');
 
   const toggleMenu = () => {
     navbar?.classList.toggle('hidden');
   };
+
+  navBarShadow?.addEventListener('click', () => {
+    navbar?.classList.add('hidden');
+  });
 
   menuBtns.forEach((menuBtn) => {
     menuBtn.addEventListener('click', toggleMenu);

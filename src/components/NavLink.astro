@@ -6,16 +6,27 @@ interface Props {
   name: string;
 }
 const pathname = new URL(Astro.request.url).pathname;
+const id = url === '/' ? 'home' : url.replace('/', '');
 ---
 
 <a
-  id={url === '/' ? 'home' : url.replace('/', '')}
+  id={id}
   href={url}
   data-astro-prefetch
   class:list={[
-    'rounded-lg  font-semibold dark:text-white outline-none text-white hover:text-text focus-visible:ring dark:focus:outline-none md:py-3 text-xl',
+    'rounded-lg nav_item font-semibold dark:text-white outline-none text-white hover:text-text focus-visible:ring dark:focus:outline-none md:py-3 text-xl',
     pathname === url ? 'text-text' : '',
   ]}
 >
   {name}
 </a>
+
+<script>
+  let menuItems = document.querySelectorAll('.nav_item');
+  const navbar = document.querySelector('#navbar');
+  menuItems?.forEach((menuItem) => {
+    menuItem?.addEventListener('click', () => {
+      navbar?.classList.add('hidden');
+    });
+  });
+</script>
