@@ -37,10 +37,10 @@ export const OG = {
 
 export const HEADER_NAV_ITEMS = [
 	{ name: "Home", url: "/" },
-	{ name: "About", url: "/about" },
-	{ name: "What We Do", url: "/what-we-do" },
-	{ name: "Media Corner", url: "/media-corner" },
-	{ name: "Team", url: "/team" },
-	{ name: "Contact Us", url: "/contact" },
-	{ name: "Join Us", url: "/join" },
+	{ name: "About", url: "/maintenance" },
+	{ name: "What We Do", url: "/maintenance" },
+	{ name: "Media Corner", url: "/maintenance" },
+	{ name: "Team", url: "/maintenance" },
+	{ name: "Contact Us", url: "/maintenance" },
+	{ name: "Join Us", url: "/maintenance" },
 ];

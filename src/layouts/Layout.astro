@@ -20,7 +20,7 @@ interface Props {
     <BaseHead meta={meta} structuredData={structuredData} />
     <title>{SITE.title}{title.length ? `| ${title}` : ''}</title>
   </head>
-  <body class="antialiased text-default tracking-tight">
+  <body class="antialiased bg-primary text-default tracking-tight">
     <slot name="announcement">
       <Announcement />
     </slot>

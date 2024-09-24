@@ -13,8 +13,8 @@ const pathname = new URL(Astro.request.url).pathname;
   href={url}
   data-astro-prefetch
   class:list={[
-    'rounded-lg  font-semibold dark:text-white outline-none ring-zinc-500 hover:text-[#f08806] focus-visible:ring dark:focus:outline-none md:py-3 text-xl',
-    pathname === url ? 'text-[#f08806]' : '',
+    'rounded-lg  font-semibold dark:text-white outline-none text-white hover:text-text focus-visible:ring dark:focus:outline-none md:py-3 text-xl',
+    pathname === url ? 'text-text' : '',
   ]}
 >
   {name}

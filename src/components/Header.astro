@@ -17,7 +17,7 @@ import NavLink from './NavLink.astro';
       <button
         id="menu-btn"
         type="button"
-        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
       >
         <span class="sr-only">Open main menu</span>
         <svg
@@ -45,18 +45,14 @@ import NavLink from './NavLink.astro';
   <div id="navbar" class="hidden lg:hidden" role="dialog" aria-modal="true">
     <div class="fixed inset-0 z-10"></div>
     <div
-      class="fixed sm:shadow-xl ring-2 ring-[#f08806] rounded-t-lg sm:rounded-none bottom-0 sm:inset-y-0 sm:right-0 z-10 w-full overflow-y-auto bg-white dark:bg-black dark:bg-opacity-6 px-6 py-6 sm:max-w-xs sm:ring-1 sm:ring-gray-900/10"
+      class="fixed sm:shadow-xl ring-2 ring-text rounded-t-lg sm:rounded-none bottom-0 sm:inset-y-0 sm:right-0 z-10 w-full overflow-y-auto bg-primary dark:bg-primary dark:bg-opacity-6 px-6 py-6 sm:max-w-xs sm:ring-1 sm:ring-gray-900/10"
     >
       <div class="flex items-center justify-between">
         <a href="/" class="-m-1.5 p-1.5">
           <span class="sr-only">{SITE.title}</span>
           <Image class="h-16 w-auto" src={config.site.logo} alt="We Care Logo" height={8} width={8} />
         </a>
-        <button
-          id="menu-btn"
-          type="button"
-          class="-m-2.5 cursor-pointer rounded-md p-2.5 text-gray-700 dark:text-white"
-        >
+        <button id="menu-btn" type="button" class="-m-2.5 cursor-pointer rounded-md p-2.5 text-white dark:text-white">
           <span class="sr-only">Close menu</span>
           <svg
             class="h-8 w-8"
