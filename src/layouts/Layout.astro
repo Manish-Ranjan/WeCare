@@ -1,9 +1,11 @@
 ---
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
 import Announcement from '@components/Announcement.astro';
 import BaseHead from '@components/BaseHead.astro';
 import { SITE } from '@constants/index';
 
-const { title = SITE.title, meta, structuredData, lang = 'en' } = Astro.props;
+const { title = '', meta, structuredData, lang = 'en' } = Astro.props;
 
 interface Props {
   title?: string;
@@ -16,29 +18,18 @@ interface Props {
 <html lang={lang} class="scroll-pt-16">
   <head>
     <BaseHead meta={meta} structuredData={structuredData} />
-    <title>{`${SITE.title} | ${title}`}</title>
-    <script is:inline>
-      // Script to handle dark mode. It will check if the theme is stored in localStorage or if dark theme is preferred by system settings
-      if (
-        localStorage.getItem('WeCare_theme') === 'dark' ||
-        (!('WeCare_theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-      ) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    </script>
+    <title>{SITE.title}{title.length ? `| ${title}` : ''}</title>
   </head>
   <body class="antialiased text-default tracking-tight">
     <slot name="announcement">
       <Announcement />
     </slot>
-    <div class="mx-auto flex-grow max-w-screen-2xl px-4 sm:px-6 lg:px-8">
-      <!-- <Navbar /> -->
-      <main>
-        <slot />
-      </main>
-    </div>
-    <!-- <FooterSection /> -->
+    <Header />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>
+
+<style is:global></style>

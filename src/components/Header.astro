@@ -1,0 +1,101 @@
+---
+import config from '@config/config.json';
+import { Image } from 'astro:assets';
+import { HEADER_NAV_ITEMS, SITE } from '@/constants';
+import NavLink from './NavLink.astro';
+---
+
+<header class="z-40 sticky top-0 dark:bg-black">
+  <nav class="container flex items-center justify-between py-2" aria-label="Global">
+    <div class="flex justify-between">
+      <a href="/" class="-m-1.5 p-1.5">
+        <span class="sr-only">{SITE.title}</span>
+        <Image class="h-16 w-auto" src={config.site.logo} alt="We Care Logo" height={16} width={16} />
+      </a>
+    </div>
+    <div class="flex lg:hidden gap-4">
+      <button
+        id="menu-btn"
+        type="button"
+        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+      >
+        <span class="sr-only">Open main menu</span>
+        <svg
+          class="h-8 w-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+        </svg>
+      </button>
+    </div>
+    <ul class="hidden lg:flex lg:gap-x-12">
+      {
+        HEADER_NAV_ITEMS.map((link) => (
+          <li>
+            <NavLink url={link.url} name={link.name} />
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <div id="navbar" class="hidden lg:hidden" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 z-10"></div>
+    <div
+      class="fixed sm:shadow-xl ring-2 ring-[#f08806] rounded-t-lg sm:rounded-none bottom-0 sm:inset-y-0 sm:right-0 z-10 w-full overflow-y-auto bg-white dark:bg-black dark:bg-opacity-6 px-6 py-6 sm:max-w-xs sm:ring-1 sm:ring-gray-900/10"
+    >
+      <div class="flex items-center justify-between">
+        <a href="/" class="-m-1.5 p-1.5">
+          <span class="sr-only">{SITE.title}</span>
+          <Image class="h-16 w-auto" src={config.site.logo} alt="We Care Logo" height={8} width={8} />
+        </a>
+        <button
+          id="menu-btn"
+          type="button"
+          class="-m-2.5 cursor-pointer rounded-md p-2.5 text-gray-700 dark:text-white"
+        >
+          <span class="sr-only">Close menu</span>
+          <svg
+            class="h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="mt-6 flow-root">
+        <div class="-my-6 divide-y items-center divide-gray-500/10">
+          <ul class="space-y-2 py-6 text-center">
+            {
+              HEADER_NAV_ITEMS.map((link) => (
+                <li>
+                  <NavLink url={link.url} name={link.name} />
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  let menuBtns = document.querySelectorAll('#menu-btn');
+  const navbar = document.querySelector('#navbar');
+
+  const toggleMenu = () => {
+    navbar?.classList.toggle('hidden');
+  };
+
+  menuBtns.forEach((menuBtn) => {
+    menuBtn.addEventListener('click', toggleMenu);
+  });
+</script>

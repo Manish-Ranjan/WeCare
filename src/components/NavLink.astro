@@ -1,0 +1,21 @@
+---
+const { url, name } = Astro.props;
+
+interface Props {
+  url: string;
+  name: string;
+}
+const pathname = new URL(Astro.request.url).pathname;
+---
+
+<a
+  id={url === '/' ? 'home' : url.replace('/', '')}
+  href={url}
+  data-astro-prefetch
+  class:list={[
+    'rounded-lg  font-semibold dark:text-white outline-none ring-zinc-500 hover:text-[#f08806] focus-visible:ring dark:focus:outline-none md:py-3 text-xl',
+    pathname === url ? 'text-[#f08806]' : '',
+  ]}
+>
+  {name}
+</a>

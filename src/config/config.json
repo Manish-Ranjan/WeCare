@@ -1,0 +1,20 @@
+{
+  "site": {
+    "title": "WeCare",
+    "base_url": "https://wecare.netlify.app",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/favicon.svg",
+    "logo": "/images/logo.webp",
+    "logo_darkmode": "/images/logo.png",
+    "logo_width": "150",
+    "logo_height": "30",
+    "logo_text": "WeCare"
+  },
+
+  "metadata": {
+    "meta_author": "zeon.studio",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "astro and tailwind boilerplate"
+  }
+}
