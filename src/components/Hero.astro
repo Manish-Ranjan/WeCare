@@ -1,15 +1,13 @@
 ---
-import { Image } from 'astro:assets';
-import Projects from './Projects.astro';
-const HERO_IMAGES = ['Hero-1.webp', 'Hero-2.webp', 'Hero-3.webp', 'Hero-1.webp'];
+const HERO_IMAGES = ['/images/Hero-1.webp', '/images/Hero-2.webp', '/images/Hero-3.webp', '/images/Hero-1.webp'];
 ---
 
-<section id="hero" class="user-cloud w-full h-48 sm:h-96 md:h-[680px] relative">
-  <div class="brands-carousel pl-0 h-full overflow-hidden relative">
+<section class="user-cloud relative h-48 sm:h-96 md:h-[42rem] w-full">
+  <div class="brands-carousel relative pl-0 h-full overflow-hidden">
     {
-      HERO_IMAGES.map((heroImg, index) => (
-        <picture class="object-cover w-full ">
-          <img class="h-full w-full" src={`/images/${heroImg}`} alt="A bird." width={700} height={700} />
+      HERO_IMAGES.map((heroImg) => (
+        <picture class="h-screen object-cover w-full absolute top-0 flex justify-center">
+          <img class="h-fit w-fit lg:h-full lg:w-full " src={heroImg} alt="We care projects" />
         </picture>
       ))
     }
