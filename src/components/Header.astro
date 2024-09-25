@@ -1,6 +1,5 @@
 ---
 import config from '@config/config.json';
-import { Image } from 'astro:assets';
 import { HEADER_NAV_ITEMS, SITE } from '@/constants';
 import NavLink from './NavLink.astro';
 ---
@@ -50,7 +49,7 @@ import NavLink from './NavLink.astro';
       <div class="flex items-center justify-between">
         <a href="/" class="-m-1.5 p-1.5">
           <span class="sr-only">{SITE.title}</span>
-          <Image class="h-16 w-auto" src={config.site.logo} alt="We Care Logo" height={8} width={8} />
+          <img class="h-16 w-auto" src={config.site.logo} alt="We Care Logo" height={8} width={8} />
         </a>
         <button id="menu-btn" type="button" class="-m-2.5 cursor-pointer rounded-md p-2.5 text-white dark:text-white">
           <span class="sr-only">Close menu</span>
