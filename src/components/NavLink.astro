@@ -22,7 +22,7 @@ const id = url === '/' ? 'home' : url.replace('/', '');
 </a>
 
 <script>
-  let menuItems = document.querySelectorAll('.nav_item');
+  const menuItems = document.querySelectorAll('.nav_item');
   const navbar = document.querySelector('#navbar');
   menuItems?.forEach((menuItem) => {
     menuItem?.addEventListener('click', () => {

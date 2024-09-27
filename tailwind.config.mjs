@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-const theme = require('./src/config/theme.json');
+import theme from '@config/theme.json';
 
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
