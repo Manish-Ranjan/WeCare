@@ -4,5 +4,6 @@ services:
       context: .
     environment:
       NODE_ENV: production
+      ASTRO_TELEMETRY_DISABLED: 1
     ports:
       - 4321:4321

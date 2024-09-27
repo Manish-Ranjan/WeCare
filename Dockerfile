@@ -1,14 +1,13 @@
 # syntax=docker/dockerfile:1
 
-ARG NODE_VERSION=20
-ARG PNPM_VERSION=9.9.0
+ARG NODE_VERSION=lts
 
 FROM node:${NODE_VERSION}-alpine as base
 
 WORKDIR /usr/src/app
 
 RUN --mount=type=cache,target=/root/.npm \
-    npm install -g pnpm@${PNPM_VERSION}
+    npm install -g pnpm
 
 FROM base as deps
 
@@ -28,24 +27,18 @@ COPY . .
 
 RUN pnpm run build
 
-# FROM base as final
+USER node
 
-# ENV NODE_ENV production
+FROM base as final
 
-# USER node
+ENV NODE_ENV production
+ENV ASTRO_TELEMETRY_DISABLED 1
 
-# COPY package.json .
+COPY package.json .
 
-# COPY --from=deps /usr/src/app/node_modules ./node_modules
-# COPY --from=build /usr/src/app/dist ./dist
+COPY --from=deps /usr/src/app/node_modules ./node_modules
+COPY --from=build /usr/src/app/dist ./dist
 
-# EXPOSE 4321
+EXPOSE 4321
 
-# CMD pnpm start
-
-FROM nginx:alpine AS runner
-
-COPY ./config/nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
-
-WORKDIR /usr/share/nginx/html
+CMD pnpm start

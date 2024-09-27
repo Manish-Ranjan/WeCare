@@ -1,8 +1,6 @@
 ---
 import { OG, SEO, SITE } from '@constants/index';
 import { ViewTransitions } from 'astro:transitions';
-// import faviconSvgSrc from "@images/icon.svg";
-// import faviconSrc from "@images/icon.png";
 
 // Default properties for the Meta component. These values are used if props are not provided.
 // 'meta' sets a default description meta tag to describe the page content.
@@ -94,11 +92,11 @@ const ogDescription = OG.description;
 
 <!-- Links for favicons -->
 <link href="/favicon.ico" rel="icon" sizes="any" type="image/x-icon" />
-<!-- <link href={faviconSvg.src} rel="icon" type="image/svg+xml" sizes="any" /> -->
+<link href="/favicon.svg" rel="icon" type="image/svg+xml" sizes="any" />
 <meta name="mobile-web-app-capable" content="yes" />
 <!-- <link href={appleTouchIcon.src} rel="apple-touch-icon" />
 <link href={appleTouchIcon.src} rel="shortcut icon" /> -->
 <!-- Set theme color -->
-<meta name="theme-color" content="#facc15" />
+<meta name="theme-color" content="#ff4f0e" />
 
 <ViewTransitions fallback="swap" />
